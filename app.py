@@ -12,12 +12,15 @@ def load_recipes(filename: str = "recipes.txt"):
             RECIPES.append({"name": name, "ingredients": ingredients})
 
 
-if __name__ == "__main__":
-    # Load recipes from the file
-    load_recipes()
+# Load recipes from the file
+load_recipes()
 
-    # Set up the GUI
-    root = tk.Tk()
-    root.title("Recipe Suggestion App")
+# Set up the GUI
+root = tk.Tk()
+root.title("Recipe Suggestion App")
 
-    root.mainloop()
+result_text = tk.StringVar()
+result_display = tk.Label(root, textvariable=result_text, justify=tk.LEFT)
+result_display.pack(pady=10)
+
+root.mainloop()
