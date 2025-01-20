@@ -7,6 +7,11 @@ NAME = "name"
 RECIPES = []
 
 
+# Function to display the list of ingredients
+def update_ingredients_display():
+    ingredients_text.set("\n".join(INGREDIENTS_LIST))
+
+
 # Function to search for matching recipes
 def search_recipes():
     matches = []
@@ -35,6 +40,12 @@ root.title("Recipe Suggestion App")
 
 search_button = tk.Button(root, text="Search Recipes", command=search_recipes)
 search_button.pack(pady=5)
+
+ingredients_text = tk.StringVar()
+ingredients_display = tk.Label(root, textvariable=ingredients_text, justify=tk.LEFT)
+ingredients_display.pack(pady=10)
+
+update_ingredients_display()
 
 result_text = tk.StringVar()
 result_display = tk.Label(root, textvariable=result_text, justify=tk.LEFT)
