@@ -1,10 +1,22 @@
 import tkinter as tk
 
+from tkinter import messagebox
+
 INGREDIENTS = "ingredients"
-# TODO Enable the user to update their ingredients list in the final version
-INGREDIENTS_LIST: list[str] = ["tomato", "garlic", "olive oil", "pasta", "salt"]
+INGREDIENTS_LIST: list[str] = []
 NAME = "name"
 RECIPES = []
+
+
+# Function to add ingredients to the list
+def add_ingredient():
+    ingredient = ingredient_entry.get()
+    if ingredient:
+        INGREDIENTS_LIST.append(ingredient)
+        ingredient_entry.delete(0, tk.END)
+        update_ingredients_display()
+    else:
+        messagebox.showwarning("Input Error", "Please enter an ingredient")
 
 
 # Function to display the list of ingredients
@@ -38,14 +50,18 @@ load_recipes()
 root = tk.Tk()
 root.title("Recipe Suggestion App")
 
+ingredient_entry = tk.Entry(root, width=30)
+ingredient_entry.pack(pady=10)
+
+add_button = tk.Button(root, text="Add Ingredient", command=add_ingredient)
+add_button.pack(pady=5)
+
 search_button = tk.Button(root, text="Search Recipes", command=search_recipes)
 search_button.pack(pady=5)
 
 ingredients_text = tk.StringVar()
 ingredients_display = tk.Label(root, textvariable=ingredients_text, justify=tk.LEFT)
 ingredients_display.pack(pady=10)
-
-update_ingredients_display()
 
 result_text = tk.StringVar()
 result_display = tk.Label(root, textvariable=result_text, justify=tk.LEFT)

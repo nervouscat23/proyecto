@@ -1,1 +1,5 @@
+Grilled Cheese Sandwich:bread,cheese,butter
+Tomato Soup:tomato,garlic,onion,olive oil,salt
 Pasta with Tomato Sauce:tomato,garlic,olive oil,pasta,salt
+Garlic Bread:bread,garlic,butter,parsley
+Cheese Pizza:bread,cheese,tomato,olive oil
